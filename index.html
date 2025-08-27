@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Générateur de dés</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Générateur de lancer de dés</h1>
+    <div id="dice-container"></div>
+    <button id="roll-btn">Lancer les dés</button>
+    <div class="dice-options">
+      <label for="dice-count">Nombre de dés :</label>
+      <select id="dice-count">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+      </select>
+    </div>
+
+    <div id="result">
+      <p>Total : <span id="total">0</span></p>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

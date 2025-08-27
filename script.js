@@ -4,17 +4,22 @@ const rollBtn = document.getElementById("roll-btn");
 const diceCountSelect = document.getElementById("dice-count");
 const totalSpan = document.getElementById("total");
 
+// Pour la modale
+const infoBtn = document.getElementById("info-btn");
+const modal = document.getElementById("info-modal");
+const closeModal = document.getElementById("close-modal");
+
 // Tableau des faces de dés
 const diceFaces = ["⚀", "⚁", "⚂", "⚃", "⚄", "⚅"];
 
-// Fonction pour générer un dé aléatoire (0 à 5 pour l'index du tableau)
+// Fonction pour générer un dé aléatoire
 function rollDie() {
     return Math.floor(Math.random() * 6);
 }
 
-// Fonction pour créer les dés dans le container (max 5 par ligne)
+// Création des dés (max 5 par ligne)
 function createDice(count) {
-    diceContainer.innerHTML = ""; // vide le container
+    diceContainer.innerHTML = "";
 
     const dicePerRow = 5;
     const rows = Math.ceil(count / dicePerRow);
@@ -27,30 +32,26 @@ function createDice(count) {
             const die = document.createElement("div");
             die.classList.add("die");
 
-            // Crée le span à l'intérieur pour l'emoji
             const emojiSpan = document.createElement("span");
             emojiSpan.textContent = "🎲";
-            emojiSpan.classList.add("placeholder"); // classe spécifique
-            die.appendChild(emojiSpan);
+            emojiSpan.classList.add("placeholder");
 
+            die.appendChild(emojiSpan);
             row.appendChild(die);
         }
-
         diceContainer.appendChild(row);
     }
 }
 
-// Fonction pour animer et lancer les dés
+// Lancer les dés avec animation
 function rollDice() {
     const count = parseInt(diceCountSelect.value);
     const diceElements = diceContainer.querySelectorAll(".die span");
     const finalValues = [];
 
-    // Désactivation du bouton et select pendant l'animation
     rollBtn.disabled = true;
     diceCountSelect.disabled = true;
 
-    // Ajustement du timing selon le nombre de dés
     let baseDelay = 100;
     let stepDelay = 50;
     if (count > 5 && count <= 10) {
@@ -62,7 +63,7 @@ function rollDice() {
     }
 
     diceElements.forEach((span, index) => {
-        let iterations = 8 + Math.floor(Math.random() * 6); // un peu moins de tours
+        let iterations = 8 + Math.floor(Math.random() * 6);
         let currentIteration = 0;
 
         const interval = setInterval(() => {
@@ -88,15 +89,29 @@ function rollDice() {
     });
 }
 
-
-// Initialisation : créer le nombre de dés sélectionné au chargement
+// Initialisation
 createDice(parseInt(diceCountSelect.value));
-
-// Quand on change le nombre de dés
 diceCountSelect.addEventListener("change", () => {
     createDice(parseInt(diceCountSelect.value));
     totalSpan.textContent = "0";
 });
-
-// Quand on clique sur lancer
 rollBtn.addEventListener("click", rollDice);
+
+// Gestion de la modale ℹ️ (contenu fixe)
+infoBtn.addEventListener("click", () => {
+    probabilitiesText = modal.querySelector("#probabilities");
+    probabilitiesText.innerHTML = `
+    <strong>Avec 10 dés :</strong> ~ <strong>1 chance sur 60 466 176</strong> d’obtenir le score minimum <strong>(10)</strong> ou maximum <strong>(60)</strong>.<br><br>
+    <strong>Avec 15 dés :</strong> ~ <strong>1 chance sur 470 184 984 576</strong> d’obtenir le score minimum <strong>(15)</strong> ou maximum <strong>(90)</strong>.<br><br>
+    Bonne chance pour obtenir le score maximum (ou minimum)
+`;
+    modal.style.display = "flex";
+});
+
+// Fermeture modale
+closeModal.addEventListener("click", () => {
+    modal.style.display = "none";
+});
+window.addEventListener("click", (e) => {
+    if (e.target === modal) modal.style.display = "none";
+});

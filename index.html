@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
+    <script
+      src="https://kit.fontawesome.com/86ad738bec.js"
+      crossorigin="anonymous"
+    ></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Générateur de dés</title>
@@ -22,9 +26,18 @@
         <option value="15">15</option>
       </select>
     </div>
-
     <div id="result">
       <p>Total : <span id="total">0</span></p>
+    </div>
+    <span id="info-btn" class="info-icon"
+      ><i class="fa-solid fa-info"></i
+    ></span>
+    <div id="info-modal" class="modal">
+      <div class="modal-content">
+        <h2>Probabilités 🎲</h2>
+        <p id="probabilities"></p>
+        <button id="close-modal">Fermer</button>
+      </div>
     </div>
     <script src="script.js"></script>
   </body>

@@ -106,3 +106,61 @@ select {
   font-weight: bold;
   font-size: 3rem;
 }
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 30px 40px;
+  border-radius: 16px;
+  text-align: center;
+  max-width: 600px;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.modal-content h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.modal-content button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  border: none;
+  background-color: #b22222;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.modal-content button:hover {
+  background-color: #e63946;
+}
+
+.fa-info {
+  color: white;
+  background-color: #074718;
+  border: 2px solid white;
+  border-radius: 100%;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.fa-info:hover {
+  opacity: 0.8;
+}

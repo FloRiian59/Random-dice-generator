@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: #0b6623;
+  background-color: #0f3926;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,9 +16,9 @@ body {
 }
 
 h1 {
-  margin-bottom: 60px;
+  margin-bottom: 30px;
   font-size: 4rem;
-  color: #1a1a1a;
+  color: #efecd1;
   text-align: center;
 }
 
@@ -36,11 +36,10 @@ h1 {
 }
 
 .die {
-  width: 140px;
-  height: 140px;
-  background-color: #fff;
+  width: 91px;
+  height: 91px;
+  background-color: #fdf6d9;
   border: 3px solid #000;
-  border-radius: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -60,7 +59,7 @@ h1 {
 }
 
 .die span.placeholder {
-  font-size: 7rem;
+  font-size: 5rem;
   transform: translateY(-6px);
 }
 
@@ -91,14 +90,24 @@ h1 {
   align-items: center;
   gap: 20px;
   font-size: 1.5rem;
+  color: #efecd1;
+  font-weight: bold;
 }
 
 select {
-  padding: 10px 16px;
+  padding: 10px 14px;
   font-size: 1.5rem;
   border-radius: 8px;
-  border: 1px solid #1a1a1a;
   cursor: pointer;
+  border: none;
+  background-color: #f4c447;
+  color: #0f3926;
+  font-weight: 800;
+}
+
+option {
+  color: #0f3926;
+  font-weight: 800;
 }
 
 #result {
